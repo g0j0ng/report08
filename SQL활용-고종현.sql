@@ -104,13 +104,15 @@ where user_name like ('김%');
 -- 9번 데이터 삭제(DELETE)
 delete from notice
 where notice_tit='null';
+
 select * from notice;
 
 -- 10번 데이터 변경 (update)
 update login_info
 set member_pass='qwer1234'
 where member_num='5';
--- select * from login_info;
+
+select * from login_info;
 
 -- 11번 인덱스
 create index idx_notice on notice(notice_tit,user_name);
@@ -118,7 +120,7 @@ create index idx_notice on notice(notice_tit,user_name);
  
 -- 12번 인덱스를 이용한 검색효율성 
 
--- 20개올라감
+-- 19개올라감
 select * from notice where notice_txt = '내용2';
 -- 1개올라감
 select * from notice where notice_num = 5;
@@ -131,7 +133,7 @@ as select login_info.member_id,
 from login_info join notice on 
 		login_info.member_num = notice.notice_num;
 	
--- select * from my_view;
+select * from my_view;
 
 -- 14번 뷰의 생성(view)  
 create view my_view2(제목,작성일,작성자,회원아이디)
@@ -140,7 +142,7 @@ as select notice.notice_tit, notice.notice_date,
 from login_info join notice on 
 		login_info.member_num = notice.notice_num;
 
--- select * from my_view2;
+select * from my_view2;
 
 -- 15번 생성된 모든 database요소들을 삭제하시오(database, user....)
 drop database if exists member_db;
