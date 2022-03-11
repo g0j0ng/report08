@@ -110,16 +110,18 @@ select * from notice;
 update login_info
 set member_pass='qwer1234'
 where member_num='5';
-
 -- select * from login_info;
 
 -- 11번 인덱스
 create index idx_notice on notice(notice_tit,user_name);
 -- drop index idx_notice on notice(notice_tit,user_name);
  
-
 -- 12번 인덱스를 이용한 검색효율성 
+
+-- 20개올라감
 select * from notice where notice_txt = '내용2';
+-- 1개올라감
+select * from notice where notice_num = 5;
 
 -- 13번 뷰의 생성(view)  
 create view my_view(회원아이디,제목,내용,작성일,작성자)
